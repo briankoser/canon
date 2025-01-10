@@ -1,7 +1,7 @@
 # canon
 Bible reading program web app
 
-- JamiM Discord what-to-do-when-the-literary-life-feels-overwhelming
+- Shared by Jami on The Literary Life Discord
 - https://ransomfellowship.org/article/bible-reading-program-for-slackers-shirkers/
 - https://archive.org/details/ifgodalreadyknow00kell/page/194/mode/2up
 
@@ -40,4 +40,6 @@ The sections are not equal lengths. When you finish a section, that day becomes 
 - Mark all read button
 - Allow inputting start chapters (e.g. if cookie gets deleted)
 - Work offline
+- Display longest remaining section after a section is finished
+- Different checkbox colors for unfinished, finished today, finished before today
 - Create Roman Catholic, Eastern Orthodox versions
