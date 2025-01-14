@@ -18,18 +18,18 @@
     </header>
 
     <main x-data="app">
-        <div class="start" x-show="isStartScreen">
-            <button @click="create">Start new</button>
-            <button @click="continue">Continue</button>
+        <div class="startScreen" x-show="isStartScreen">
+            <button @click="createPlan">Start new</button>
+            <button @click="continuePlan">Continue</button>
         </div>
 
-        <div class="continue" x-show="isContinueScreen">
+        <div class="continueScreen" x-show="isContinueScreen">
             <p>Select the last chapter you read for each day:</p>
             <!-- loop the days from the selected plan -->
             <button @click="createContinuation">Start</button>
         </div>
 
-        <div class="plan" x-show="isPlanScreen">
+        <div class="planScreen" x-show="isPlanScreen">
             <!-- loop the days from the selected plan -->
         </div>
     </main>

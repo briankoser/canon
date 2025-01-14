@@ -8,17 +8,15 @@ document.addEventListener('alpine:init', () => {
 	screen: SCREEN_START,
 
     async init() {
-        createInitialConsole(this);
-        startTimestamp = new Date();
         PLANS = await loadPlans();
     },
 
-    continue() {
-
+    continuePlan() {
+        this.screen = SCREEN_CONTINUE;
     },
-    create() {
+    createPlan() {
         // create empty "cookie"
-        // flip display flag to plan
+        this.screen = SCREEN_PLAN;
     },
     createContinuation() {
 
