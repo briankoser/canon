@@ -1,237 +1,237 @@
 ﻿{
-    "protestant": {
-        "sunday": {
+    "protestant": [
+        {
             "day": "Sunday",
             "dailyChapters": 5,
-            "chapters": [{
-                "book": "Psalms",
+            "books": [{
+                "title": "Psalms",
                 "chapters": 150
             }, {
-                "book": "Proverbs",
+                "title": "Proverbs",
                 "chapters": 31
             }, {
-                "book": "Ecclesiastes",
+                "title": "Ecclesiastes",
                 "chapters": 12
             }, {
-                "book": "Song of Solomon",
+                "title": "Song of Solomon",
                 "chapters": 8
             }]
         }, 
-        "monday": {
+        {
             "day": "Monday",
             "dailyChapters": 3,
-            "chapters": [{
-                "book": "Genesis",
+            "books": [{
+                "title": "Genesis",
                 "chapters": 50
             }, {
-                "book": "Exodus",
+                "title": "Exodus",
                 "chapters": 40
             }, {
-                "book": "Leviticus",
+                "title": "Leviticus",
                 "chapters": 27
             }, {
-                "book": "Numbers",
+                "title": "Numbers",
                 "chapters": 36
             }, {
-                "book": "Deuteronomy",
+                "title": "Deuteronomy",
                 "chapters": 34
             }]
         }, 
-        "tuesday": {
+        {
             "day": "Tuesday",
             "dailyChapters": 3,
-            "chapters": [{
-                "book": "Joshua",
+            "books": [{
+                "title": "Joshua",
                 "chapters": 24
             }, {
-                "book": "Judges",
+                "title": "Judges",
                 "chapters": 21
             }, {
-                "book": "Ruth",
+                "title": "Ruth",
                 "chapters": 4
             }, {
-                "book": "1 Samuel",
+                "title": "1 Samuel",
                 "chapters": 31
             }, {
-                "book": "2 Samuel",
+                "title": "2 Samuel",
                 "chapters": 24
             }, {
-                "book": "1 Kings",
+                "title": "1 Kings",
                 "chapters": 22
             }, {
-                "book": "2 Kings",
+                "title": "2 Kings",
                 "chapters": 25
             }]
         }, 
-        "wednesday": {
+        {
             "day": "Wednesday",
             "dailyChapters": 3,
-            "chapters": [{
-                "book": "Job",
+            "books": [{
+                "title": "Job",
                 "chapters": 42
             }, {
-                "book": "1 Chronicles",
+                "title": "1 Chronicles",
                 "chapters": 29
             }, {
-                "book": "2 Chronicles",
+                "title": "2 Chronicles",
                 "chapters": 36
             }, {
-                "book": "Ezra",
+                "title": "Ezra",
                 "chapters": 10
             }, {
-                "book": "Nehemiah",
+                "title": "Nehemiah",
                 "chapters": 13
             }, {
-                "book": "Esther",
+                "title": "Esther",
                 "chapters": 10
             }]
         }, 
-        "thursday": {
+        {
             "day": "Thursday",
             "dailyChapters": 3,
-            "chapters": [{
-                "book": "Isaiah",
+            "books": [{
+                "title": "Isaiah",
                 "chapters": 66
             }, {
-                "book": "Jeremiah",
+                "title": "Jeremiah",
                 "chapters": 52
             }, {
-                "book": "Lamentations",
+                "title": "Lamentations",
                 "chapters": 5
             }, {
-                "book": "Ezekiel",
+                "title": "Ezekiel",
                 "chapters": 48
             }, {
-                "book": "Daniel",
+                "title": "Daniel",
                 "chapters": 12
             }, {
-                "book": "Hosea",
+                "title": "Hosea",
                 "chapters": 14
             }, {
-                "book": "Joel",
+                "title": "Joel",
                 "chapters": 3
             }, {
-                "book": "Amos",
+                "title": "Amos",
                 "chapters": 9
             }, {
-                "book": "Obadiah",
+                "title": "Obadiah",
                 "chapters": 1
             }, {
-                "book": "Jonah",
+                "title": "Jonah",
                 "chapters": 4
             }, {
-                "book": "Micah",
+                "title": "Micah",
                 "chapters": 7
             }, {
-                "book": "Nahum",
+                "title": "Nahum",
                 "chapters": 3
             }, {
-                "book": "Habakkuk",
+                "title": "Habakkuk",
                 "chapters": 3
             }, {
-                "book": "Zephaniah",
+                "title": "Zephaniah",
                 "chapters": 3
             }, {
-                "book": "Haggai",
+                "title": "Haggai",
                 "chapters": 2
             }, {
-                "book": "Zechariah",
+                "title": "Zechariah",
                 "chapters": 14
             }, {
-                "book": "Malachi",
+                "title": "Malachi",
                 "chapters": 4
             }]
         }, 
-        "friday": {
+        {
             "day": "Friday",
             "dailyChapters": 3,
-            "chapters": [{
-                "book": "Matthew",
+            "books": [{
+                "title": "Matthew",
                 "chapters": 28
             }, {
-                "book": "Mark",
+                "title": "Mark",
                 "chapters": 16
             }, {
-                "book": "Luke",
+                "title": "Luke",
                 "chapters": 24
             }, {
-                "book": "John",
+                "title": "John",
                 "chapters": 21
             }, {
-                "book": "Acts",
+                "title": "Acts",
                 "chapters": 28
             }]
         }, 
-        "saturday": {
+        {
             "day": "Saturday",
             "dailyChapters": 3,
-            "chapters": [{
-                "book": "Romans",
+            "books": [{
+                "title": "Romans",
                 "chapters": 16
             }, {
-                "book": "1 Corinthians",
+                "title": "1 Corinthians",
                 "chapters": 16
             }, {
-                "book": "2 Corinthians",
+                "title": "2 Corinthians",
                 "chapters": 13
             }, {
-                "book": "Galatians",
+                "title": "Galatians",
                 "chapters": 6
             }, {
-                "book": "Ephesians",
+                "title": "Ephesians",
                 "chapters": 6
             }, {
-                "book": "Philippians",
+                "title": "Philippians",
                 "chapters": 4
             }, {
-                "book": "Colossians",
+                "title": "Colossians",
                 "chapters": 4
             }, {
-                "book": "1 Thessalonians",
+                "title": "1 Thessalonians",
                 "chapters": 5
             }, {
-                "book": "2 Thessalonians",
+                "title": "2 Thessalonians",
                 "chapters": 3
             }, {
-                "book": "1 Timothy",
+                "title": "1 Timothy",
                 "chapters": 6
             }, {
-                "book": "2 Timothy",
+                "title": "2 Timothy",
                 "chapters": 4
             }, {
-                "book": "Titus",
+                "title": "Titus",
                 "chapters": 3
             }, {
-                "book": "Philemon",
+                "title": "Philemon",
                 "chapters": 1
             }, {
-                "book": "Hebrews",
+                "title": "Hebrews",
                 "chapters": 13
             }, {
-                "book": "James",
+                "title": "James",
                 "chapters": 5
             }, {
-                "book": "1 Peter",
+                "title": "1 Peter",
                 "chapters": 5
             }, {
-                "book": "2 Peter",
+                "title": "2 Peter",
                 "chapters": 3
             }, {
-                "book": "1 John",
+                "title": "1 John",
                 "chapters": 5
             }, {
-                "book": "2 John",
+                "title": "2 John",
                 "chapters": 1
             }, {
-                "book": "3 John",
+                "title": "3 John",
                 "chapters": 1
             }, {
-                "book": "Jude",
+                "title": "Jude",
                 "chapters": 1
             }, {
-                "book": "Revelation",
+                "title": "Revelation",
                 "chapters": 22
             }]
         }
-    }
+    ]
 }
