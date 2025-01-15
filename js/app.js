@@ -1,37 +1,31 @@
-const SCREEN_CONTINUE = "continue";
-const SCREEN_PLAN = "plan";
-const SCREEN_START = "start";
-let PLANS = [];
-
 document.addEventListener('alpine:init', () => {
-  Alpine.data('app', () => ({
-	screen: SCREEN_START,
+    Alpine.data('app', () => ({
+        async init() {
+            let plans = await loadPlans();
+            Alpine.store('plans', plans);
+        },
 
-    async init() {
-        PLANS = await loadPlans();
-    },
+        continuePlan() {
+            Alpine.store('screens').current = 'continue';
+        },
+        createPlan() {
+            Alpine.store('screens').current = 'plan';
+            // create empty "cookie"
+        },
+        createContinuation() {
+            // save selections into cookie
+        },
 
-    continuePlan() {
-        this.screen = SCREEN_CONTINUE;
-    },
-    createPlan() {
-        // create empty "cookie"
-        this.screen = SCREEN_PLAN;
-    },
-    createContinuation() {
+        get isContinueScreen() {
+            return this.screen === SCREEN_CONTINUE;
+        }
+    }));
 
-    },
+    Alpine.store('screens', {
+        current: 'start',
 
-    get isContinueScreen() {
-        return this.screen === SCREEN_CONTINUE;
-    },
-    get isPlanScreen() {
-        return this.screen === SCREEN_PLAN;
-    },
-    get isStartScreen() {
-        return this.screen === SCREEN_START;
-    }
-  }))
+        items: ['start', 'continue', 'plan'],
+    });
 });
 
 async function loadPlans() {
