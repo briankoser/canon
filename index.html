@@ -14,23 +14,43 @@
 <body>
     <header>
         <h1>Canon</h1>
-        <h2>A Bible reading program where you can't get behind</h2>
+        <span>A Bible reading program where you can't get behind</span>
     </header>
 
     <main x-data="app">
-        <div class="startScreen" x-show="isStartScreen">
+        <div class="startScreen" x-show="$store.screens.current === 'start'">
             <button @click="createPlan">Start new</button>
             <button @click="continuePlan">Continue</button>
         </div>
 
-        <div class="continueScreen" x-show="isContinueScreen">
+        <div class="continueScreen" x-show="$store.screens.current === 'continue'">
             <p>Select the last chapter you read for each day:</p>
             <!-- loop the days from the selected plan -->
             <button @click="createContinuation">Start</button>
         </div>
 
-        <div class="planScreen" x-show="isPlanScreen">
-            <!-- loop the days from the selected plan -->
+        <div class="planScreen" x-show="$store.screens.current === 'plan'">
+            <template x-for="plan in $store.plans.protestant">
+                <div>
+                    <h2 x-text="plan.day"></h2>
+                    <p x-text="plan.dailyChapters"></p>
+                    <template x-for="book in plan.books">
+                        <div>
+                            <h3 x-text="book.title"></h3>
+                            <template x-for="chapter in book.chapters">
+                                <div>
+                                    <label x-text="chapter"></label>
+                                    <input type="checkbox" $id="chapter">
+                                </div>
+                                <div x-id="[book.title + chapter]">
+                                    <label :for="$id(book.title + chapter)">
+                                    <input type="checkbox" :id="$id(book.title + chapter)">
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+            </template>
         </div>
     </main>
     <!-- <script type="module" src="js/app.js"></script> -->
