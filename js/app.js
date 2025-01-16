@@ -3,7 +3,13 @@ document.addEventListener('alpine:init', () => {
         async init() {
             let plans = await loadPlans();
             Alpine.store('plans', plans);
+
+            const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            this.selectedDay = days[(new Date()).getDay()];
         },
+
+        chaptersRead: [],
+        selectedDay: 'Sunday',
 
         continuePlan() {
             Alpine.store('screens').current = 'continue';
@@ -16,8 +22,15 @@ document.addEventListener('alpine:init', () => {
             // save selections into cookie
         },
 
-        get isContinueScreen() {
-            return this.screen === SCREEN_CONTINUE;
+        get lastChaptersRead() {
+            return Object.fromEntries(
+                this.chaptersRead
+                    .map(x => x.split('-'))
+                    .sort( (a, b) => a[0] === b[0] ? a[1] - b[1] : a[0] < b[0])
+            );
+        },
+        get selectedPlanDay() {
+            return Alpine.store('plans').protestant.find(d => d.day === this.selectedDay);
         }
     }));
 

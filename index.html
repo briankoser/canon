@@ -30,23 +30,21 @@
         </div>
 
         <div class="planScreen" x-show="$store.screens.current === 'plan'">
-            <template x-for="plan in $store.plans.protestant">
+            <select x-model="selectedDay">
+                <template x-for="day in ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']">
+                    <option x-text="day"></option>
+                </template>
+            </select>
+            <h2 x-text="selectedDay"></h2>
+            <p x-text="selectedPlanDay.dailyChapters"></p>
+            <span x-text="JSON.stringify(lastChaptersRead)"></span>
+            <template x-for="book in selectedPlanDay.books">
                 <div>
-                    <h2 x-text="plan.day"></h2>
-                    <p x-text="plan.dailyChapters"></p>
-                    <template x-for="book in plan.books">
+                    <h3 x-text="book.title"></h3>
+                    <template x-for="chapter in book.chapters">
                         <div>
-                            <h3 x-text="book.title"></h3>
-                            <template x-for="chapter in book.chapters">
-                                <div>
-                                    <label x-text="chapter"></label>
-                                    <input type="checkbox" $id="chapter">
-                                </div>
-                                <div x-id="[book.title + chapter]">
-                                    <label :for="$id(book.title + chapter)">
-                                    <input type="checkbox" :id="$id(book.title + chapter)">
-                                </div>
-                            </template>
+                            <label x-text="chapter" :for="`${book.title}-${chapter}`"></label>
+                            <input type="checkbox" x-model="chaptersRead" :id="`${book.title}-${chapter}`" :value="`${book.title}-${chapter}`">
                         </div>
                     </template>
                 </div>
