@@ -33,13 +33,13 @@ Douglas Kelly says it has existed since the Puritans.
 
 The sections are not equal lengths. When you finish a section, that day becomes a day to read one of the longest remaining sections.
 
-# Notes
-- Store last read chapter of each section in cookie
-- Display chapters for current day
-- Checkbox by each chapter to mark read
-- Mark all read button
-- Allow inputting start chapters (e.g. if cookie gets deleted)
-- Work offline
-- Display longest remaining section after a section is finished
-- Different checkbox colors for unfinished, finished today, finished before today
-- Create Roman Catholic, Eastern Orthodox versions
+# To Do
+- [ ] When a chapter is checked, check all previous chapters in that day
+- [ ] Refresh checkbox display on day dropdown select (currently retaining checks from previous day)
+- [ ] Store in cookie
+- [ ] Allow inputting start chapters (e.g. if cookie gets deleted)
+- [ ] Work offline
+- [ ] Display longest remaining section after a section is finished
+- [ ] Different checkbox colors for unfinished, finished today, finished before today
+- [ ] Create Roman Catholic version
+- [ ] Create Eastern Orthodox version
