@@ -11,6 +11,17 @@ document.addEventListener('alpine:init', () => {
         chaptersRead: [],
         selectedDay: 'Sunday',
 
+        chapterClick(e) {
+            let selectedDay = e.target.id.split('-')[0];
+            let selectedIndex = parseInt(e.target.id.split('-')[1]);
+            
+            let chapters = [];
+            for (let i = 0; i <= selectedIndex; i++) {
+                chapters.push(`${selectedDay}-${i}`);
+            }
+            
+            this.chaptersRead = chapters;
+        },
         continuePlan() {
             Alpine.store('screens').current = 'continue';
         },

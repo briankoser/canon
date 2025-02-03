@@ -37,16 +37,15 @@
             </select>
             <h2 x-text="selectedDay"></h2>
             <p x-text="selectedPlanDay.dailyChapters"></p>
-            <span x-text="JSON.stringify(chaptersRead)"></span>
-            <span x-text="JSON.stringify(lastChaptersRead)"></span>
             <template x-for="(book, bookIndex) in selectedPlanDay.books">
                 <div>
                     <h3 x-text="book.title"></h3>
                     <template x-for="(chapter, chapterIndex) in book.chapters">
                         <div>
                             <label x-text="chapter" :for="`${selectedPlanDay.day}-${(bookIndex * 1000) + chapterIndex}`"></label>
-                            <input type="checkbox" x-model="chaptersRead" 
-                                :id="`${selectedPlanDay.day}-${(bookIndex * 1000) + chapterIndex}`" :value="`${selectedPlanDay.day}-${(bookIndex * 1000) + chapterIndex}`">
+                            <input type="checkbox" x-model="chaptersRead" @click="chapterClick"
+                                :id="`${selectedPlanDay.day}-${(bookIndex * 1000) + chapterIndex}`" 
+                                :value="`${selectedPlanDay.day}-${(bookIndex * 1000) + chapterIndex}`">
                         </div>
                     </template>
                 </div>

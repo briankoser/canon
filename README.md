@@ -34,7 +34,6 @@ Douglas Kelly says it has existed since the Puritans.
 The sections are not equal lengths. When you finish a section, that day becomes a day to read one of the longest remaining sections.
 
 # To Do
-- [ ] When a chapter is checked, check all previous chapters in that day
 - [ ] Refresh checkbox display on day dropdown select (currently retaining checks from previous day)
 - [ ] Store in cookie
 - [ ] Allow inputting start chapters (e.g. if cookie gets deleted)
