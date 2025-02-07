@@ -15,12 +15,13 @@ document.addEventListener('alpine:init', () => {
             let selectedDay = e.target.id.split('-')[0];
             let selectedIndex = parseInt(e.target.id.split('-')[1]);
             
-            let chapters = [];
+            let selectedDayChapters = [];
             for (let i = 0; i <= selectedIndex; i++) {
-                chapters.push(`${selectedDay}-${i}`);
+                selectedDayChapters.push(`${selectedDay}-${i}`);
             }
             
-            this.chaptersRead = chapters;
+            let chapters = Array.from(this.chaptersRead).filter(c => !c.startsWith(selectedDay));            
+            this.chaptersRead = chapters.concat(selectedDayChapters);
         },
         continuePlan() {
             Alpine.store('screens').current = 'continue';

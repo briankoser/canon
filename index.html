@@ -37,15 +37,19 @@
             </select>
             <h2 x-text="selectedDay"></h2>
             <p x-text="selectedPlanDay.dailyChapters"></p>
-            <template x-for="(book, bookIndex) in selectedPlanDay.books">
+            <template x-for="day in $store.plans.protestant">
                 <div>
-                    <h3 x-text="book.title"></h3>
-                    <template x-for="(chapter, chapterIndex) in book.chapters">
-                        <div>
-                            <label x-text="chapter" :for="`${selectedPlanDay.day}-${(bookIndex * 1000) + chapterIndex}`"></label>
-                            <input type="checkbox" x-model="chaptersRead" @click="chapterClick"
-                                :id="`${selectedPlanDay.day}-${(bookIndex * 1000) + chapterIndex}`" 
-                                :value="`${selectedPlanDay.day}-${(bookIndex * 1000) + chapterIndex}`">
+                    <template x-for="(book, bookIndex) in day.books">
+                        <div x-show="selectedDay === day.day">
+                            <h3 x-text="book.title"></h3>
+                            <template x-for="(chapter, chapterIndex) in book.chapters">
+                                <div>
+                                    <label x-text="chapter" :for="`${day.day}-${(bookIndex * 1000) + chapterIndex}`"></label>
+                                    <input type="checkbox" x-model="chaptersRead" @click="chapterClick"
+                                        :id="`${day.day}-${(bookIndex * 1000) + chapterIndex}`" 
+                                        :value="`${day.day}-${(bookIndex * 1000) + chapterIndex}`">
+                                </div>
+                            </template>
                         </div>
                     </template>
                 </div>
