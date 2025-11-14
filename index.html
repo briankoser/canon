@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self'; script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net;">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self'; script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net;"> -->
 
     <title>Canon</title>
     <meta name="description" content="Canon, a Bible reading program">
@@ -14,13 +14,13 @@
 <body>
     <header>
         <h1>Canon</h1>
-        <span>A Bible reading program where you can't get behind</span>
+        <span>The Bible reading plan where you can't get behind!</span>
     </header>
 
     <main x-data="app">
         <div class="startScreen" x-show="$store.screens.current === 'start'">
-            <button @click="createPlan">Start new</button>
-            <button @click="continuePlan">Continue</button>
+            <button @click="createPlan">Start New</button>
+            <button @click="continuePlan">Continue Plan</button>
         </div>
 
         <div class="continueScreen" x-show="$store.screens.current === 'continue'">
@@ -30,28 +30,12 @@
         </div>
 
         <div class="planScreen" x-show="$store.screens.current === 'plan'">
-            <select x-model="selectedDay">
-                <template x-for="day in ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']">
-                    <option x-text="day"></option>
-                </template>
-            </select>
-            <h2 x-text="selectedDay"></h2>
-            <p x-text="selectedPlanDay.dailyChapters"></p>
-            <template x-for="day in $store.plans.protestant">
-                <div>
-                    <template x-for="(book, bookIndex) in day.books">
-                        <div x-show="selectedDay === day.day">
-                            <h3 x-text="book.title"></h3>
-                            <template x-for="(chapter, chapterIndex) in book.chapters">
-                                <div>
-                                    <label x-text="chapter" :for="`${day.day}-${(bookIndex * 1000) + chapterIndex}`"></label>
-                                    <input type="checkbox" x-model="chaptersRead" @click="chapterClick"
-                                        :id="`${day.day}-${(bookIndex * 1000) + chapterIndex}`" 
-                                        :value="`${day.day}-${(bookIndex * 1000) + chapterIndex}`">
-                                </div>
-                            </template>
-                        </div>
-                    </template>
+            <h2 x-text="todayLong"></h2>
+            <p x-text="JSON.stringify(planDay)"></p>
+            <template x-for="chapter in planDay">
+                <div>                    
+                    <input type="checkbox" x-model="chaptersRead" @click="chapterClick" :id="`${chapter.id}`" :value="`${chapter.id}`">
+                    <label x-text="`${chapter.book} ${chapter.number}`" :for="`${chapter.id}`"></label>
                 </div>
             </template>
         </div>

@@ -34,10 +34,16 @@ Douglas Kelly says it has existed since the Puritans.
 The sections are not equal lengths. When you finish a section, that day becomes a day to read one of the longest remaining sections.
 
 # To Do
+- [x] Basic display
+- [ ] Save clicks
 - [ ] Store in cookie
-- [ ] Allow inputting start chapters (e.g. if cookie gets deleted)
 - [ ] Work offline
-- [ ] Display longest remaining section after a section is finished
-- [ ] Different checkbox colors for unfinished, finished today, finished before today
+- [ ] Switch to longest remaining section after a section is finished
+- [ ] CSS
+- [ ] Export current location
+- [ ] Import current location
+- [ ] Allow inputting start chapters (e.g. if cookie gets deleted)
+- [ ] About page
+- [ ] Create Protestant + Apocrypha version
 - [ ] Create Roman Catholic version
 - [ ] Create Eastern Orthodox version
