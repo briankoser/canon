@@ -32,8 +32,11 @@
         <div class="planScreen" x-show="$store.screens.current === 'plan'">
             <h2 x-text="todayLong"></h2>
             <p x-text="JSON.stringify(planDay)"></p>
+            <p x-text="JSON.stringify(chaptersRead)"></p>
+            <p x-text="JSON.stringify(progress)"></p>
+            <p x-text="JSON.stringify(currentProgress)"></p>
             <template x-for="chapter in planDay">
-                <div>                    
+                <div>
                     <input type="checkbox" x-model="chaptersRead" @click="chapterClick" :id="`${chapter.id}`" :value="`${chapter.id}`">
                     <label x-text="`${chapter.book} ${chapter.number}`" :for="`${chapter.id}`"></label>
                 </div>

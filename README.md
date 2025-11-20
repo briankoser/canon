@@ -35,7 +35,8 @@ The sections are not equal lengths. When you finish a section, that day becomes 
 
 # To Do
 - [x] Basic display
-- [ ] Save clicks
+- [x] Save clicks
+- [ ] Disable unchecked checkboxes except for the next chapter
 - [ ] Store in cookie
 - [ ] Work offline
 - [ ] Switch to longest remaining section after a section is finished

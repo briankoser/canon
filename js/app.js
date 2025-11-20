@@ -13,21 +13,14 @@ document.addEventListener('alpine:init', () => {
 
         chaptersRead: [],
         plans: {},
+        progress: {},
         today: '',
         todayLong: '',
         version: '',
 
         chapterClick(e) {
-            let selectedDay = e.target.id.split('-')[0];
-            let selectedIndex = parseInt(e.target.id.split('-')[1]);
-            
-            let selectedDayChapters = [];
-            for (let i = 0; i <= selectedIndex; i++) {
-                selectedDayChapters.push(`${selectedDay}-${i}`);
-            }
-            
-            let chapters = Array.from(this.chaptersRead).filter(c => !c.startsWith(selectedDay));            
-            this.chaptersRead = chapters.concat(selectedDayChapters);
+            console.log(e);
+            // this.progress[this.today] = Math.max(...this.chaptersRead);
         },
         continuePlan() {
             Alpine.store('screens').current = 'continue';
@@ -40,15 +33,12 @@ document.addEventListener('alpine:init', () => {
             // save selections into cookie
         },
 
+        get currentProgress() {
+            this.progress[this.today] = Math.max(...this.chaptersRead);
+            return this.progress;
+        },
         get dayCompletionPercentages() {
             // {"Wednesday":"5009","Tuesday":"6024","Thursday":"16003","Sunday":"3007","Saturday":"21021","Monday":"4033","Friday":"4027"}
-        },
-        get lastChaptersRead() {
-            return Object.fromEntries(
-                this.chaptersRead
-                    .map(x => x.split('-'))
-                    .sort( (a, b) => a[0] === b[0] ? a[1] - b[1] : a[0] < b[0])
-            );
         },
         get planDay() {
             // day gets today unless day is complete, when it gets the day with the most remaining chapters
