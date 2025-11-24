@@ -37,8 +37,8 @@
             <p x-text="JSON.stringify(currentProgress)"></p>
             <template x-for="chapter in planDay">
                 <div>
-                    <input type="checkbox" x-model="chaptersRead" @click="chapterClick" :id="`${chapter.id}`" :value="`${chapter.id}`">
-                    <label x-text="`${chapter.book} ${chapter.number}`" :for="`${chapter.id}`"></label>
+                    <input type="checkbox" x-model="chaptersRead" @click="chapterClick" :id="chapter.id" :value="chapter.id" :disabled="chapter.id != planDay[0].id && !chaptersRead.includes((chapter.id - 1).toString())">
+                    <label x-text="`${chapter.book} ${chapter.number}`" :for="chapter.id"></label>
                 </div>
             </template>
         </div>

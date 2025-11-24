@@ -36,7 +36,7 @@ The sections are not equal lengths. When you finish a section, that day becomes 
 # To Do
 - [x] Basic display
 - [x] Save clicks
-- [ ] Disable unchecked checkboxes except for the next chapter
+- [x] Disable unchecked checkboxes except for the next chapter
 - [ ] Store in cookie
 - [ ] Work offline
 - [ ] Switch to longest remaining section after a section is finished
@@ -45,6 +45,7 @@ The sections are not equal lengths. When you finish a section, that day becomes 
 - [ ] Import current location
 - [ ] Allow inputting start chapters (e.g. if cookie gets deleted)
 - [ ] About page
+- [ ] Uncheck disabled, checked checkboxes; something like: x-effect="if($el.disabled) $el.checked = false"
 - [ ] Create Protestant + Apocrypha version
 - [ ] Create Roman Catholic version
 - [ ] Create Eastern Orthodox version
