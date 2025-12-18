@@ -19,18 +19,18 @@ document.addEventListener('alpine:init', () => {
         version: '',
 
         chapterClick(e) {
-            console.log(e);
-            // this.progress[this.today] = Math.max(...this.chaptersRead);
+            // console.log(e);
+            // localStorage.setItem(this.today, Math.max(...this.chaptersRead));
         },
         continuePlan() {
             Alpine.store('screens').current = 'continue';
         },
         createPlan() {
             Alpine.store('screens').current = 'plan';
-            // create default "cookie"
+            localStorage.setItem("version", this.version);
         },
         createContinuation() {
-            // save selections into cookie
+            // save selections into localstorage
         },
 
         get currentProgress() {
@@ -42,9 +42,10 @@ document.addEventListener('alpine:init', () => {
         },
         get planDay() {
             // day gets today unless day is complete, when it gets the day with the most remaining chapters
-            let currentPlanDay = this.plans['protestant'].find(d => d.day === this.today);
-            console.log(currentPlanDay);
+            let currentPlanDay = this.plans[this.version].find(d => d.day === this.today);
+            // console.log(currentPlanDay);
             let lastComplete = 0; // todo: get last complete
+
             // create array with plan books + chapters
             let chapters = [];
             currentPlanDay.books.forEach(book => {
