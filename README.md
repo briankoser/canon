@@ -7,6 +7,8 @@ Bible reading program web app
 
 A program where you can't get behind
 
+## Plan
+
 Douglas Kelly says it has existed since the Puritans.
 
 - Sunday
@@ -33,13 +35,17 @@ Douglas Kelly says it has existed since the Puritans.
 
 The sections are not equal lengths. When you finish a section, that day becomes a day to read one of the longest remaining sections.
 
-# To Do
+## Tech
+- [Alpine JS](https://alpinejs.dev)
+- [Checkbox CSS](https://codepen.io/briankoser/pen/GgZVMjY)
+
+## To Do
 - [x] Basic display
 - [x] Save clicks
 - [x] Disable unchecked checkboxes except for the next chapter
 - [x] Store progress in localstorage
-- [ ] Load progress from localstorage
 - [ ] CSS
+- [ ] Load progress from localstorage
 - [ ] Continue plan (if progress gets cleared) from chapter dropdowns
 - [ ] Export current location to code
 - [ ] Continue plan from code

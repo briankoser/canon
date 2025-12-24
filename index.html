@@ -14,7 +14,7 @@
 <body>
     <header>
         <h1>Canon</h1>
-        <span>The Bible reading plan where you can't get behind!</span>
+        <p>The Bible reading plan where you can't get behind!</p>
     </header>
 
     <main x-data="app">
@@ -31,16 +31,18 @@
 
         <div class="planScreen" x-show="$store.screens.current === 'plan' || localStorage.getItem('version') != null">
             <h2 x-text="todayLong"></h2>
-            <p x-text="JSON.stringify(planDay)"></p>
+            <!-- <p x-text="JSON.stringify(planDay)"></p>
             <p x-text="JSON.stringify(chaptersRead)"></p>
             <p x-text="JSON.stringify(progress)"></p>
-            <p x-text="JSON.stringify(currentProgress)"></p>
-            <template x-for="chapter in planDay">
-                <div>
-                    <input type="checkbox" x-model="chaptersRead" @click="chapterClick" :id="chapter.id" :value="chapter.id" :disabled="chapter.id != planDay[0].id && !chaptersRead.includes((chapter.id - 1).toString())" x-effect="if(chaptersRead.length > 0) localStorage.setItem(today, Math.max(...chaptersRead))">
-                    <label x-text="`${chapter.book} ${chapter.number}`" :for="chapter.id"></label>
-                </div>
-            </template>
+            <p x-text="JSON.stringify(currentProgress)"></p> -->
+            <section>
+                <template x-for="chapter in planDay">
+                    <div x-data="{ labelHtml: `<span></span>${chapter.book} ${chapter.number}<ins><i>${chapter.book} ${chapter.number}</i></ins>` }">
+                        <input type="checkbox" x-model="chaptersRead" @click="chapterClick" :id="chapter.id" :value="chapter.id" :disabled="chapter.id != planDay[0].id && !chaptersRead.includes((chapter.id - 1).toString())" x-effect="if(chaptersRead.length > 0) localStorage.setItem(today, Math.max(...chaptersRead))">
+                        <label x-html="labelHtml" :for="chapter.id"></label>
+                    </div>
+                </template>
+            </section>
         </div>
     </main>
     <!-- <script type="module" src="js/app.js"></script> -->
