@@ -14,7 +14,7 @@
 <body>
     <header>
         <h1>Canon</h1>
-        <p>The Bible reading plan where you can't get behind!</p>
+        <p>The Bible reading plan where you can’t get behind!</p>
     </header>
 
     <main x-data="app">
@@ -35,11 +35,16 @@
             <p x-text="JSON.stringify(chaptersRead)"></p>
             <p x-text="JSON.stringify(progress)"></p>
             <p x-text="JSON.stringify(currentProgress)"></p> -->
-            <section>
+            <section class="chapters">
                 <template x-for="chapter in planDay">
-                    <div x-data="{ labelHtml: `<span></span>${chapter.book} ${chapter.number}<ins><i>${chapter.book} ${chapter.number}</i></ins>` }">
-                        <input type="checkbox" x-model="chaptersRead" @click="chapterClick" :id="chapter.id" :value="chapter.id" :disabled="chapter.id != planDay[0].id && !chaptersRead.includes((chapter.id - 1).toString())" x-effect="if(chaptersRead.length > 0) localStorage.setItem(today, Math.max(...chaptersRead))">
-                        <label x-html="labelHtml" :for="chapter.id"></label>
+                    <div class="chapter-container">
+                        <div class="flex-child checkbox-parent">
+                            <input type="checkbox" class="check-box" x-model="chaptersRead" @click="chapterClick" :id="chapter.id" :value="chapter.id" :disabled="chapter.id != planDay[0].id && !chaptersRead.includes((chapter.id - 1).toString())" x-effect="if(chaptersRead.length > 0) localStorage.setItem(today, Math.max(...chaptersRead))">
+                            <label :for="chapter.id" class="check-box"></label> <!-- inside square of the checkbox -->
+                        </div>
+                        <div class="flex-child">
+                            <label :for="chapter.id" x-text="`${chapter.book} ${chapter.number}`" class="chapter-label"></label> <!-- normal text label -->
+                        </div>
                     </div>
                 </template>
             </section>

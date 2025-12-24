@@ -37,21 +37,23 @@ The sections are not equal lengths. When you finish a section, that day becomes 
 
 ## Tech
 - [Alpine JS](https://alpinejs.dev)
-- [Checkbox CSS](https://codepen.io/briankoser/pen/GgZVMjY)
+- Checkbox CSS modified from [Jimmy Gillam's Animated CSS3 Checkbox](https://codepen.io/theigmo87/pen/BaZBVb)
 
 ## To Do
 - [x] Basic display
 - [x] Save clicks
 - [x] Disable unchecked checkboxes except for the next chapter
 - [x] Store progress in localstorage
-- [ ] CSS
+- [x] Basic CSS
 - [ ] Load progress from localstorage
 - [ ] Continue plan (if progress gets cleared) from chapter dropdowns
 - [ ] Export current location to code
 - [ ] Continue plan from code
 - [ ] Switch to longest remaining section after a section is finished
-- [ ] Work offline
 - [ ] About page
+- [ ] Mobile CSS
+- [ ] Fonts
+- [ ] Work offline
 - [ ] Uncheck disabled, checked checkboxes; something like: x-effect="if($el.disabled) $el.checked = false"
 - [ ] Install offline
 - [ ] Create Protestant + Apocrypha version
