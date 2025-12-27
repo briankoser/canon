@@ -45,7 +45,8 @@ The sections are not equal lengths. When you finish a section, that day becomes 
 - [x] Disable unchecked checkboxes except for the next chapter
 - [x] Store progress in localstorage
 - [x] Basic CSS
-- [ ] Load progress from localstorage
+- [x] Load progress from localstorage
+- [x] Display Psalm 1 instead of Psalms 1
 - [ ] Continue plan (if progress gets cleared) from chapter dropdowns
 - [ ] Export current location to code
 - [ ] Continue plan from code

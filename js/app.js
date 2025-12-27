@@ -41,25 +41,47 @@ document.addEventListener('alpine:init', () => {
             // {"Wednesday":"5009","Tuesday":"6024","Thursday":"16003","Sunday":"3007","Saturday":"21021","Monday":"4033","Friday":"4027"}
         },
         get planDay() {
-            // day gets today unless day is complete, when it gets the day with the most remaining chapters
+            // todo: day gets today unless day is complete, when it gets the day with the most remaining chapters
             let currentPlanDay = this.plans[this.version].find(d => d.day === this.today);
-            // console.log(currentPlanDay);
-            let lastComplete = 0; // todo: get last complete
-
+            let lastComplete = localStorage.getItem(this.today);
+            let lastUpdated = localStorage.getItem('lastUpdated');
+            let today = (new Date).toLocaleString( 'sv', { timeZoneName: 'short' } ).slice(0, 10);
+            let start = 0;
+            
             // create array with plan books + chapters
             let chapters = [];
+            let id = 1;
             currentPlanDay.books.forEach(book => {
-                for(let i = 0; i < book.chapters; i++) {
+                for (let i = 0; i < book.chapters; i++) {
                     let chapter = {
-                        id: (book.id * 1000) + i + 1,
+                        id: id,
                         book: book.title,
                         number: i + 1
                     };
                     chapters.push(chapter);
+                    id += 1;
                 }
             });
-            // slice array starting at last complete, ending at last complete + 1 + dailyChapters
-            return chapters.slice(lastComplete, lastComplete + currentPlanDay.dailyChapters);
+            
+            if (lastComplete) {
+                // if last updated today, start at first checked today
+                if (lastUpdated === today) {
+                    let firstCheckedToday = localStorage.getItem('firstCheckedToday');
+                    start = firstCheckedToday - 1;
+                    
+                }
+                // if not updated today, start after last complete
+                else {
+                    start = lastComplete;
+                }
+            }
+            else {
+                // if no day stored, start at beginning
+                start = 0;
+            }
+            
+            // slice array starting at calculated start, ending at last complete + dailyChapters
+            return chapters.slice(start, start + currentPlanDay.dailyChapters);
         }
     }));
 

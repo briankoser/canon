@@ -45,11 +45,11 @@
                 <template x-for="chapter in planDay">
                     <div class="chapter-container">
                         <div class="flex-child checkbox-parent">
-                            <input type="checkbox" class="check-box" x-model="chaptersRead" @click="chapterClick" :id="chapter.id" :value="chapter.id" :disabled="chapter.id != planDay[0].id && !chaptersRead.includes((chapter.id - 1).toString())" x-effect="if(chaptersRead.length > 0) localStorage.setItem(today, Math.max(...chaptersRead))">
+                            <input type="checkbox" class="check-box" x-model="chaptersRead" @click="chapterClick" :id="chapter.id" :value="chapter.id" :disabled="chapter.id != planDay[0].id && !chaptersRead.includes((chapter.id - 1).toString())" x-effect="if(chaptersRead.length > 0) { localStorage.setItem(today, Math.max(...chaptersRead)); localStorage.setItem('firstCheckedToday', Math.min(...chaptersRead)); localStorage.setItem('lastUpdated', (new Date).toLocaleString( 'sv', { timeZoneName: 'short' } ).slice(0, 10)); }">
                             <label :for="chapter.id" class="check-box"></label> <!-- inside square of the checkbox -->
                         </div>
                         <div class="flex-child">
-                            <label :for="chapter.id" x-text="`${chapter.book} ${chapter.number}`" class="chapter-label"></label> <!-- normal text label -->
+                            <label :for="chapter.id" x-text="`${chapter.book == 'Psalms' ? 'Psalm' : chapter.book} ${chapter.number}`" class="chapter-label"></label> <!-- normal text label -->
                         </div>
                     </div>
                 </template>
