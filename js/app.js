@@ -81,7 +81,7 @@ document.addEventListener('alpine:init', () => {
             }
             
             // slice array starting at calculated start, ending at last complete + dailyChapters
-            return chapters.slice(start, start + currentPlanDay.dailyChapters);
+            return chapters.slice(start, parseInt(start) + parseInt(currentPlanDay.dailyChapters));
         }
     }));
 
