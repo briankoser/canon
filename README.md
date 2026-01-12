@@ -47,6 +47,8 @@ The sections are not equal lengths. When you finish a section, that day becomes 
 - [x] Basic CSS
 - [x] Load progress from localstorage
 - [x] Display Psalm 1 instead of Psalms 1
+- [x] Don't wrap checkbox labels on mobile
+- [ ] Bug: too many chapters assigned
 - [ ] Continue plan (if progress gets cleared) from chapter dropdowns
 - [ ] Export current location to code
 - [ ] Continue plan from code

@@ -142,3 +142,9 @@ input[type=checkbox]:checked + .check-box::before,
 .checkbox-parent {
   margin-top: calc(var(--checkbox-height) * 0.2);
 }
+
+@media screen and (width < 450px) {
+  .chapter-label {
+    font-size: 1em;
+  }
+}
