@@ -144,6 +144,11 @@ input[type=checkbox]:checked + .check-box::before,
 }
 
 @media screen and (width < 450px) {
+  body,
+  h1 {
+    margin-top: 0;
+  }
+  
   .chapter-label {
     font-size: 1em;
   }
