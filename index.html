@@ -15,6 +15,7 @@
     <link rel="manifest" href="/site.webmanifest" />
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
@@ -39,13 +40,12 @@
             <h2 x-text="todayLong"></h2>
             <!-- <p x-text="JSON.stringify(planDay)"></p>
             <p x-text="JSON.stringify(chaptersRead)"></p>
-            <p x-text="JSON.stringify(progress)"></p>
-            <p x-text="JSON.stringify(currentProgress)"></p> -->
+            <p x-text="JSON.stringify(progress)"></p> -->
             <section class="chapters">
                 <template x-for="chapter in planDay">
                     <div class="chapter-container">
                         <div class="flex-child checkbox-parent">
-                            <input type="checkbox" class="check-box" x-model="chaptersRead" @click="chapterClick" :id="chapter.id" :value="chapter.id" :disabled="chapter.id != planDay[0].id && !chaptersRead.includes((chapter.id - 1).toString())" x-effect="if(chaptersRead.length > 0) { localStorage.setItem(today, Math.max(...chaptersRead)); localStorage.setItem('firstCheckedToday', Math.min(...chaptersRead)); localStorage.setItem('lastUpdated', (new Date).toLocaleString( 'sv', { timeZoneName: 'short' } ).slice(0, 10)); }">
+                            <input type="checkbox" class="check-box" x-model="chaptersRead" :id="chapter.id" :value="chapter.id" :disabled="chapter.id != planDay[0].id && !chaptersRead.includes((chapter.id - 1).toString())" x-effect="if(chaptersRead.length > 0) { localStorage.setItem(todayDay, Math.max(...chaptersRead)); localStorage.setItem('firstCheckedToday', Math.min(...chaptersRead)); localStorage.setItem('lastUpdated', (new Date).toLocaleString( 'sv', { timeZoneName: 'short' } ).slice(0, 10)); }">
                             <label :for="chapter.id" class="check-box"></label> <!-- inside square of the checkbox -->
                         </div>
                         <div class="flex-child">

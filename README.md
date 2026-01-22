@@ -38,6 +38,7 @@ The sections are not equal lengths. When you finish a section, that day becomes 
 ## Tech
 - [Alpine JS](https://alpinejs.dev)
 - Checkbox CSS modified from [Jimmy Gillam's Animated CSS3 Checkbox](https://codepen.io/theigmo87/pen/BaZBVb)
+- [Color Palette](https://coolors.co/ba0d01-d8bd8a-d8d78f-3c1642-086375)
 
 ## To Do
 - [x] Basic display
@@ -49,6 +50,8 @@ The sections are not equal lengths. When you finish a section, that day becomes 
 - [x] Display Psalm 1 instead of Psalms 1
 - [x] Don't wrap checkbox labels on mobile
 - [x] Bug: too many chapters assigned
+- [x] Bug: not displaying Wednesday checkboxes
+- [x] Bug: not saving progress
 - [ ] Continue plan (if progress gets cleared) from chapter dropdowns
 - [ ] Export current location to code
 - [ ] Continue plan from code

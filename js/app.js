@@ -6,22 +6,25 @@ document.addEventListener('alpine:init', () => {
             const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
             const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
             const currentDate = new Date();
-            this.today = days[currentDate.getDay()];
-            this.todayLong = `${this.today}, ${months[currentDate.getMonth()]} ${currentDate.getDate()}`;
+            this.todayDay = days[currentDate.getDay()];
+            this.todayLong = `${this.todayDay}, ${months[currentDate.getMonth()]} ${currentDate.getDate()}`;
             this.version = 'protestant';
+
+            let lastCheckedToday = parseInt(localStorage.getItem(this.todayDay));
+            if (this.chaptersRead.length == 0 && lastCheckedToday != null) {
+                for (let i = parseInt(localStorage.getItem('firstCheckedToday')); i < lastCheckedToday + 1; i++) {
+                    this.chaptersRead.push(i.toString());
+                }
+            }
         },
 
         chaptersRead: [],
         plans: {},
         progress: {},
-        today: '',
+        todayDay: '',
         todayLong: '',
         version: '',
 
-        chapterClick(e) {
-            // console.log(e);
-            // localStorage.setItem(this.today, Math.max(...this.chaptersRead));
-        },
         continuePlan() {
             Alpine.store('screens').current = 'continue';
         },
@@ -33,19 +36,15 @@ document.addEventListener('alpine:init', () => {
             // save selections into localstorage
         },
 
-        get currentProgress() {
-            this.progress[this.today] = Math.max(...this.chaptersRead);
-            return this.progress;
-        },
         get dayCompletionPercentages() {
             // {"Wednesday":"5009","Tuesday":"6024","Thursday":"16003","Sunday":"3007","Saturday":"21021","Monday":"4033","Friday":"4027"}
         },
         get planDay() {
             // todo: day gets today unless day is complete, when it gets the day with the most remaining chapters
-            let currentPlanDay = this.plans[this.version].find(d => d.day === this.today);
-            let lastComplete = localStorage.getItem(this.today);
+            let currentPlanDay = this.plans[this.version].find(d => d.day === this.todayDay);
+            let lastComplete = localStorage.getItem(this.todayDay);
             let lastUpdated = localStorage.getItem('lastUpdated');
-            let today = (new Date).toLocaleString( 'sv', { timeZoneName: 'short' } ).slice(0, 10);
+            let todayDate = (new Date).toLocaleString( 'sv', { timeZoneName: 'short' } ).slice(0, 10);
             let start = 0;
             
             // create array with plan books + chapters
@@ -65,7 +64,7 @@ document.addEventListener('alpine:init', () => {
             
             if (lastComplete) {
                 // if last updated today, start at first checked today
-                if (lastUpdated === today) {
+                if (lastUpdated === todayDate) {
                     let firstCheckedToday = localStorage.getItem('firstCheckedToday');
                     start = firstCheckedToday - 1;
                     
@@ -81,7 +80,7 @@ document.addEventListener('alpine:init', () => {
             }
             
             // slice array starting at calculated start, ending at last complete + dailyChapters
-            return chapters.slice(start, parseInt(start) + parseInt(currentPlanDay.dailyChapters));
+            return chapters.slice(start, start + parseInt(currentPlanDay.dailyChapters));
         }
     }));
 
