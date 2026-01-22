@@ -52,6 +52,7 @@ The sections are not equal lengths. When you finish a section, that day becomes 
 - [x] Bug: too many chapters assigned
 - [x] Bug: not displaying Wednesday checkboxes
 - [x] Bug: not saving progress
+- [x] Display disabled checkboxes as disabled
 - [ ] Continue plan (if progress gets cleared) from chapter dropdowns
 - [ ] Export current location to code
 - [ ] Continue plan from code

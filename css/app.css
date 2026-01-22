@@ -3,6 +3,7 @@
   --checkbox-height: 50px;
   --checked-color: oklch(0.5 0.2 30);
   --unchecked-color: black;
+  --disabled-color: grey;
   --duration: .4s;
 }
 
@@ -118,6 +119,10 @@ input[type=checkbox]:checked + .check-box::before,
 .check-box.checked::before {
   height: calc(var(--checkbox-height) * 1.2);
   animation: dothatopcheck var(--duration) ease 0s forwards;
+}
+
+input[type="checkbox"]:disabled + .check-box {
+  border-color: var(--disabled-color);
 }
 
 
