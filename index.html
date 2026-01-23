@@ -30,13 +30,157 @@
             <button @click="continuePlan">Continue Plan</button>
         </div>
 
-        <div class="continueScreen" x-show="$store.screens.current === 'continue' && localStorage.getItem('version') == null">
+        <div class="continueScreen" x-cloak x-show="$store.screens.current === 'continue' && localStorage.getItem('version') == null">
             <p>Select the last chapter you read for each day:</p>
-            <!-- loop the days from the selected plan -->
-            <button @click="createContinuation">Start</button>
+            
+            <section class="continuePlanDays">
+                <!-- <template x-for="day in plans[version]">
+                    <div class="day-container">
+                        <label x-text="day.day"></label>
+                        <select x-model="sundayBook">
+                            <template x-for="book in day.books">
+                                <option x-text="book.title"></option>
+                            </template>
+                        </select>
+                        <select>
+                            <template x-for="i in day.books[0].chapters">
+                                <option x-text="i"></option>
+                            </template>
+                        </select>
+                    </div>
+                </template> -->
+
+                <!-- <p x-text="JSON.stringify(continueSundayBook)"></p>
+                <p x-text="JSON.stringify(continueSundayChapter)"></p>
+                <p x-text="JSON.stringify(continueMondayBook)"></p>
+                <p x-text="JSON.stringify(continueMondayChapter)"></p>
+                <p x-text="JSON.stringify(continueTuesdayBook)"></p>
+                <p x-text="JSON.stringify(continueTuesdayChapter)"></p>
+                <p x-text="JSON.stringify(continueWednesdayBook)"></p>
+                <p x-text="JSON.stringify(continueWednesdayChapter)"></p>
+                <p x-text="JSON.stringify(continueThursdayBook)"></p>
+                <p x-text="JSON.stringify(continueThursdayChapter)"></p>
+                <p x-text="JSON.stringify(continueFridayBook)"></p>
+                <p x-text="JSON.stringify(continueFridayChapter)"></p>
+                <p x-text="JSON.stringify(continueSaturdayBook)"></p>
+                <p x-text="JSON.stringify(continueSaturdayChapter)"></p> -->
+
+                <div class="day-container">
+                    <label>Sunday</label>
+                    <select x-model="continueSundayBook">
+                            <option></option>
+                        <template x-for="book in plans[version].find(d => d.day === 'Sunday').books">
+                            <option x-text="book.title"></option>
+                        </template>
+                    </select>
+                    <select x-model="continueSundayChapter">
+                            <option></option>
+                        <template x-for="i in (plans[version].find(d => d.day === 'Sunday').books.find(b => b.title === continueSundayBook) || {'chapters': 0}).chapters">
+                            <option x-text="i"></option>
+                        </template>
+                    </select>
+                </div>
+
+                <div class="day-container">
+                    <label>Monday</label>
+                    <select x-model="continueMondayBook">
+                            <option></option>
+                        <template x-for="book in plans[version].find(d => d.day === 'Monday').books">
+                            <option x-text="book.title"></option>
+                        </template>
+                    </select>
+                    <select x-model="continueMondayChapter">
+                            <option></option>
+                        <template x-for="i in (plans[version].find(d => d.day === 'Monday').books.find(b => b.title === continueMondayBook) || {'chapters': 0}).chapters">
+                            <option x-text="i"></option>
+                        </template>
+                    </select>
+                </div>
+
+                <div class="day-container">
+                    <label>Tuesday</label>
+                    <select x-model="continueTuesdayBook">
+                            <option></option>
+                        <template x-for="book in plans[version].find(d => d.day === 'Tuesday').books">
+                            <option x-text="book.title"></option>
+                        </template>
+                    </select>
+                    <select x-model="continueTuesdayChapter">
+                            <option></option>
+                        <template x-for="i in (plans[version].find(d => d.day === 'Tuesday').books.find(b => b.title === continueTuesdayBook) || {'chapters': 0}).chapters">
+                            <option x-text="i"></option>
+                        </template>
+                    </select>
+                </div>
+
+                <div class="day-container">
+                    <label>Wednesday</label>
+                    <select x-model="continueWednesdayBook">
+                            <option></option>
+                        <template x-for="book in plans[version].find(d => d.day === 'Wednesday').books">
+                            <option x-text="book.title"></option>
+                        </template>
+                    </select>
+                    <select x-model="continueWednesdayChapter">
+                            <option></option>
+                        <template x-for="i in (plans[version].find(d => d.day === 'Wednesday').books.find(b => b.title === continueWednesdayBook) || {'chapters': 0}).chapters">
+                            <option x-text="i"></option>
+                        </template>
+                    </select>
+                </div>
+
+                <div class="day-container">
+                    <label>Thursday</label>
+                    <select x-model="continueThursdayBook">
+                            <option></option>
+                        <template x-for="book in plans[version].find(d => d.day === 'Thursday').books">
+                            <option x-text="book.title"></option>
+                        </template>
+                    </select>
+                    <select x-model="continueThursdayChapter">
+                            <option></option>
+                        <template x-for="i in (plans[version].find(d => d.day === 'Thursday').books.find(b => b.title === continueThursdayBook) || {'chapters': 0}).chapters">
+                            <option x-text="i"></option>
+                        </template>
+                    </select>
+                </div>
+
+                <div class="day-container">
+                    <label>Friday</label>
+                    <select x-model="continueFridayBook">
+                            <option></option>
+                        <template x-for="book in plans[version].find(d => d.day === 'Friday').books">
+                            <option x-text="book.title"></option>
+                        </template>
+                    </select>
+                    <select x-model="continueFridayChapter">
+                            <option></option>
+                        <template x-for="i in (plans[version].find(d => d.day === 'Friday').books.find(b => b.title === continueFridayBook) || {'chapters': 0}).chapters">
+                            <option x-text="i"></option>
+                        </template>
+                    </select>
+                </div>
+
+                <div class="day-container">
+                    <label>Saturday</label>
+                    <select x-model="continueSaturdayBook">
+                            <option></option>
+                        <template x-for="book in plans[version].find(d => d.day === 'Saturday').books">
+                            <option x-text="book.title"></option>
+                        </template>
+                    </select>
+                    <select x-model="continueSaturdayChapter">
+                            <option></option>
+                        <template x-for="i in (plans[version].find(d => d.day === 'Saturday').books.find(b => b.title === continueSaturdayBook) || {'chapters': 0}).chapters">
+                            <option x-text="i"></option>
+                        </template>
+                    </select>
+                </div>
+            </section>
+            <button @click="createContinuation">Save Plan</button>
         </div>
 
-        <div class="planScreen" x-show="$store.screens.current === 'plan' || localStorage.getItem('version') != null">
+        <div class="planScreen" x-cloak x-show="$store.screens.current === 'plan' || localStorage.getItem('version') != null">
             <h2 x-text="todayLong"></h2>
             <!-- <p x-text="JSON.stringify(planDay)"></p>
             <p x-text="JSON.stringify(chaptersRead)"></p>

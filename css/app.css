@@ -148,6 +148,10 @@ input[type="checkbox"]:disabled + .check-box {
   margin-top: calc(var(--checkbox-height) * 0.2);
 }
 
+[x-cloak] { 
+  display: none !important; 
+}
+
 @media screen and (width < 450px) {
   body,
   h1 {
